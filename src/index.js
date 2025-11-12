@@ -27,7 +27,6 @@ app.get("/",(req,res)=>{
 });
 
 app.get("/ping/:host", async (req, res) => {
-  res.header('Access-Control-Allow-Origin','*');
   const host = req.params.host;
   try {
     const result = await ping.promise.probe(host, { timeout: 3 });
