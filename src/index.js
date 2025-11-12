@@ -26,6 +26,8 @@ app.get("/",(req,res)=>{
     res.json("Servicios");
 });
 
+
+
 app.get("/ping/:host", async (req, res) => {
   const host = req.params.host;
   try {
@@ -39,6 +41,13 @@ app.get("/ping/:host", async (req, res) => {
     res.status(500).json({ error: "Ping failed", details: err.message });
   }
 });
+
+
+app.get("/ping2/:host", async (req, res) => {
+  const host = req.params.host;
+  res.json({host});
+});
+
 
 app.use("/api/servicios", servicioRoutes);
 
