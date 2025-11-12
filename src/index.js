@@ -11,13 +11,13 @@ connectDB();
 
 import servicioRoutes from "./routes/servicios.routes.js";
 
-app.use(cors());
-//app.use(
-//    cors({
-//      credentials: true,
-//      origin: FRONTEND_URL,
-//    })
-//);
+//app.use(cors());
+app.use(
+    cors({
+      credentials: true,
+      origin: FRONTEND_URL,
+    })
+);
 
 //app.use(cookieParser());
 app.use(express.json());
