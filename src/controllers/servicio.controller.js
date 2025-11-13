@@ -55,10 +55,10 @@ export const eliminarServicio = async (req, res) => {
 
 export const editarServicio = async (req, res) => {
   try {
-    const { nombre, dominio } = req.body;
+    const { nombre, dominio, estatus } = req.body;
     const servicioEditado = await Servicio.findOneAndUpdate(
       { _id: req.params.id },
-      { nombre, dominio },
+      { nombre, dominio, estatus },
       { new: true }
     );
     return res.json(servicioEditado);
