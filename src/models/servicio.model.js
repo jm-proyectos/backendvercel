@@ -12,6 +12,9 @@ const servicioSchema = new mongoose.Schema(
     },
     estatus: {
       type: String
+    },
+      estatusColor: {
+      type: String
     }
   },
   {
