@@ -23,10 +23,11 @@ export const tablaServicio = async (req, res) => {
   
 export const crearServicio = async (req, res) => {
     try {
-      const { nombre, dominio } = req.body;
+      const { nombre, dominio, estatus } = req.body;
       const nuevoServicio = new Servicio({
         nombre: nombre,
-        dominio: dominio
+        dominio: dominio,
+        estatus: estatus
       });
   
       const servicioAgregado = await nuevoServicio.save();
@@ -34,7 +35,8 @@ export const crearServicio = async (req, res) => {
       res.json({
         id: servicioAgregado._id,
         name: servicioAgregado.nombre,
-        dominio: servicioAgregado.dominio
+        dominio: servicioAgregado.dominio,
+        estatus: servicioAgregado.estatus
       });
     } catch (error) {
       res.status(500).json({ message: error.message });
