@@ -3,6 +3,7 @@ import connectDB from './db.js';
 //import ping from "ping";
 import ping from "node-http-ping";
 import cors from "cors";
+
 //import cookieParser from "cookie-parser";
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,6 +11,7 @@ const FRONTEND_URL = process.env.FRONTEND_URL;
 
 connectDB();
 
+import authRoutes from "./routes/auth.routes.js";
 import servicioRoutes from "./routes/servicios.routes.js";
 
 app.use(cors());
@@ -59,7 +61,7 @@ app.get("/ping/:host", async (req, res) => {
 //   res.json({host});
 // });
 
-
+app.use("/api/auth", authRoutes);
 app.use("/api/servicios", servicioRoutes);
 
 
